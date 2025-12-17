@@ -33,10 +33,10 @@ spec:
     spec:
       containers:
       - name: student-management
-        image: leffatsaid/student-management:latest
+        image: nadhmirouissi/student-management:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8090
+        - containerPort: 8089
         env:
         - name: SPRING_DATASOURCE_URL
           valueFrom:
@@ -63,7 +63,8 @@ spec:
   selector:
     app: student-management
   ports:
-  - port: 8090
-    targetPort: 8090
+  - protocol: TCP
+    port: 8089
+    targetPort: 8089
     nodePort: 30080
   type: NodePort
